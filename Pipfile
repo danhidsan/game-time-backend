@@ -5,9 +5,9 @@ name = "pypi"
 
 [packages]
 flask = "~=2.0.1"
-graphene = "~=2.1.8"
 pylint = "*"
 flask-graphql = "~=2.0.1"
+ariadne = "*"
 
 [dev-packages]
 

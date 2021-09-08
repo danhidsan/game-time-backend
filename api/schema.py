@@ -1,9 +1,12 @@
-import graphene
+from ariadne import load_schema_from_path, make_executable_schema, QueryType
 
-from api.game import Query as GameQuery
-from api.user import Query as UserQuery
+from .resolvers.user import resolve_user
+from .resolvers.game import resolve_games
 
-class Query(GameQuery, UserQuery):
-    pass
+type_defs = load_schema_from_path('./api/types/')
 
-schema = graphene.Schema(query=Query)
+query = QueryType()
+query.set_field('user', resolve_user)
+query.set_field('games', resolve_games)
+
+schema = make_executable_schema(type_defs, [query])
