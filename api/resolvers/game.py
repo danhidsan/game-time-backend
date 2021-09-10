@@ -1,5 +1,14 @@
-def resolve_games(obj, info):
+def resolve_explore_games(obj, info):
     return [
-        { "title": "Title 1", "image": "Image 1"  },
-        { "title": "Title 2", "image": "Image 2"  }
+        { "popular": [], "newness": [], "anticipated": [] },
+    ]
+
+def resolve_search_games(*_, name):
+    return [
+        { "igdbId": "", "title": "", "image": "" }
+    ]
+
+def resolve_user_games(*_, userId=None, status=None):
+    return [
+        { "playing": [{ "title": status }], "forPlay": [], "finished": [] }
     ]

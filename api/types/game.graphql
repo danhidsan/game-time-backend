@@ -1,4 +1,25 @@
-type Game {
+enum GameStatus {
+  PLAYING
+  FOR_PLAY
+  FINISHED
+}
+
+type Game implements BaseType {
+  id: ID!
+  igdbId: String!
   title: String!
   image: String!
+  status: GameStatus
+}
+
+type ExploreGames {
+  popular: [Game]
+  newness: [Game]
+  anticipated: [Game] 
+}
+
+type UserGames {
+  playing: [Game]
+  forPlay: [Game]
+  finished: [Game]
 }

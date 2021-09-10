@@ -1,4 +1,8 @@
 type Query {
-  games: [Game]
+  """ Game """
+  exploreGames: ExploreGames
+  searchGames(name: String!): [Game]
+  userGames(userId: ID, status: GameStatus): UserGames
+  """ User """
   user(id: ID!): User!
 }

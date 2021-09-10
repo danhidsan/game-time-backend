@@ -1,0 +1,4 @@
+""" Common interface for all return types """
+interface BaseType {
+  id: ID!
+}
