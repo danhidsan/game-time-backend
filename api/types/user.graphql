@@ -1,4 +1,40 @@
-type User {
+type User implements BaseType {
+  id: ID!
   email: String!
   username: String!
+  password: String!
+}
+
+type LoginPayload implements ResponsePayload {
+  error: String
+  status: String!
+  token: String
+  user: User
+}
+
+type UpdateUserPayload implements ResponsePayload {
+  error: String
+  status: String!
+  user: User
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+input UserInput {
+  username: String
+  email: String
+}
+
+input UpdatePasswordInput {
+  oldPassword: String!
+  newPassword: String!
+}
+
+input SignUpInput {
+  username: String!
+  email: String!
+  password: String!
 }

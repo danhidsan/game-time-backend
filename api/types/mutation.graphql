@@ -1,0 +1,9 @@
+
+type Mutation {
+  """ User """
+  login(input: LoginInput!): LoginPayload!
+  logout: ResponsePayload!
+  signUp(input: SignUpInput!): LoginPayload!
+  updateUser(input: UserInput!): UpdateUserPayload!
+  updatePassword(input: UpdatePasswordInput!): ResponsePayload!
+}
