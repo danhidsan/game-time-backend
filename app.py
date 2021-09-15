@@ -2,6 +2,7 @@ from ariadne import QueryType, graphql_sync, make_executable_schema
 from ariadne.constants import PLAYGROUND_HTML
 from flask import Flask, request, jsonify
 
+from integration.igdb.client import igdb_client
 from api.schema import schema
 
 app = Flask(__name__)
@@ -32,6 +33,15 @@ def graphql_server():
 
     status_code = 200 if success else 400
     return jsonify(result), status_code
+
+@app.route("/health", methods=["GET"])
+def health():
+    payload = "fields name,cover.url; search \"Horizon Zero Down\"; limit 30;"
+    route = "games"
+    games = igdb_client(route, payload)
+    status_code = 200
+    return jsonify(status="OK", games=games), status_code
+
 
 
 if __name__ == "__main__":
