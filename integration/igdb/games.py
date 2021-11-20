@@ -22,7 +22,7 @@ class IGDBGameSchema(Schema):
 
 def search_games_igdb(search: str) -> List[IGDBGame]:
     payload = f"fields name,cover.url; search \"{search}\"; limit 30;"
-    games: list = igdb_client(API_ROUTE, payload, "kr5qqk4ro88ubzvcfqzr1q1kwjxfbl")
+    games: list = igdb_client(API_ROUTE, payload, "i1wbq2wwiuh0vkv36te51t3o79gh28")
     schema = IGDBGameSchema(many=True)
     games_deserialized = schema.load(games)
-    return games
+    return games_deserialized
