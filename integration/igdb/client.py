@@ -1,7 +1,6 @@
 import os
-import requests
 import json
-
+import requests
 class AuthorizationError(Exception):
     def __init__(self, message="Authorization Failure") -> None:
         self.message = message

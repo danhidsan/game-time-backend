@@ -5,7 +5,7 @@ from ariadne.constants import PLAYGROUND_HTML
 from flask import Flask, request, jsonify
 
 
-from integration.igdb.games import search_games
+from integration.igdb.games import search_games_igdb
 from api.schema import schema
 
 app = Flask(__name__)
@@ -41,7 +41,7 @@ def graphql_server():
 
 @app.route("/health", methods=["GET"])
 def health():
-    games = search_games("Horizon Zero Down")
+    games = search_games_igdb("Horizon Zero Down")
     status_code = 200
     return jsonify(status="OK", games=games), status_code
 

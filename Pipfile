@@ -6,9 +6,9 @@ name = "pypi"
 [packages]
 flask = "~=2.0.1"
 pylint = "*"
-flask-graphql = "~=2.0.1"
 ariadne = "*"
 python-dotenv = "*"
+marshmallow = "*"
 
 [dev-packages]
 
