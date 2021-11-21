@@ -9,6 +9,9 @@ pylint = "*"
 ariadne = "*"
 python-dotenv = "*"
 marshmallow = "*"
+psycopg2 = "*"
+flask-sqlalchemy = "*"
+flask-migrate = "*"
 
 [dev-packages]
 

@@ -1,8 +1,10 @@
+from flask import Flask, request, jsonify
 from dotenv import load_dotenv
-
 from ariadne import QueryType, graphql_sync, make_executable_schema
 from ariadne.constants import PLAYGROUND_HTML
-from flask import Flask, request, jsonify
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+
 
 
 from integration.igdb.games import search_games_igdb
@@ -11,6 +13,11 @@ from api.schema import schema
 app = Flask(__name__)
 
 load_dotenv('.env')
+
+app.config.from_pyfile('config.py')
+
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
 
 @app.route("/graphql", methods=["GET"])
