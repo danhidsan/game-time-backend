@@ -12,8 +12,11 @@ marshmallow = "*"
 psycopg2 = "*"
 flask-sqlalchemy = "*"
 flask-migrate = "*"
+bcrypt = "*"
 
 [dev-packages]
+pylint-flask = "*"
+pylint-flask-sqlalchemy = "*"
 
 [requires]
 python_version = "3.8"
