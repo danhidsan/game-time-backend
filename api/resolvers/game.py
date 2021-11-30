@@ -1,4 +1,4 @@
-from repositories.games import search_games
+from domain.games import search_games
 
 def resolve_explore_games(obj, info):
     return [
