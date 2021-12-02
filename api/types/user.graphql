@@ -5,16 +5,16 @@ type User implements BaseType {
   password: String!
 }
 
-type LoginPayload implements ResponsePayload {
-  error: String
-  status: String!
+type LoginPayload {
   token: String
   user: User
 }
 
-type UpdateUserPayload implements ResponsePayload {
-  error: String
+type LogoutPayload {
   status: String!
+}
+
+type UpdateUserPayload {
   user: User
 }
 

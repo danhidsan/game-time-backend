@@ -1,3 +1,5 @@
+from domain.user import create_user
+
 """ Query resolvers """
 
 def resolve_user(obj, info, id=None):
@@ -26,20 +28,19 @@ def resolve_logout(obj, info):
     }
 
 def resolve_signup(*_, input):
+    user = create_user(input)
+    print(user)
     return {
-        "error": "",
-        "status": "OK",
-        "token": "",
+        "token": "token",
         "user": {
-            "email": "",
-            "username": "",
+            "id": user.id,
+            "email": user.email,
+            "username": user.username,
         }
     }
 
 def resolve_update_user(*_, input):
     return {
-        "error": "",
-        "status": "OK",
         "user": {
             "email": "",
             "username": "",

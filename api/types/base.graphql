@@ -2,8 +2,3 @@
 interface BaseType {
   id: ID!
 }
-
-interface ResponsePayload {
-  error: String
-  status: String!
-}
