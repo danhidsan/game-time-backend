@@ -4,6 +4,6 @@ type Mutation {
   login(input: LoginInput!): LoginPayload!
   logout: LogoutPayload!
   signUp(input: SignUpInput!): LoginPayload!
-  updateUser(input: UserInput!): UpdateUserPayload!
+  updateUser(user_id: ID!, input: UserInput!): UpdateUserPayload!
   updatePassword(input: UpdatePasswordInput!): UpdateUserPayload!
 }
