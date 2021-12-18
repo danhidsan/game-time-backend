@@ -13,6 +13,7 @@ psycopg2 = "*"
 flask-sqlalchemy = "*"
 flask-migrate = "*"
 bcrypt = "*"
+pyjwt = "*"
 
 [dev-packages]
 pylint-flask = "*"

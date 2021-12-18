@@ -5,5 +5,5 @@ def generate_password(password: str):
     return password_hash
 
 def check_password(password: str, hash: str):
-    isMatch = bcrypt.checkpw(password, hash)
-    return isMatch
+    is_match = bcrypt.checkpw(password, hash)
+    return is_match

@@ -1,4 +1,4 @@
-from domain.user import create_user, update_user
+from domain.user import create_user, update_user, login
 
 """ Query resolvers """
 
@@ -11,13 +11,14 @@ def resolve_user(obj, info, id=None):
 """ Mutation resolvers """
 
 def resolve_login(*_, input):
+    token, user = login(login_input=input)
+    if not user and not token:
+        return {}
     return {
-        "error": "",
-        "status": "OK",
-        "token": "",
+        "token": token,
         "user": {
-            "email": "",
-            "username": "",
+            "email": user.email,
+            "username": user.username,
         }
     }
 
@@ -28,7 +29,7 @@ def resolve_logout(obj, info):
     }
 
 def resolve_signup(*_, input):
-    user = create_user(input)
+    user = create_user(user_input=input)
     return {
         "token": "token",
         "user": {

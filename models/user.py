@@ -29,7 +29,7 @@ class User(TimestampMixin, db.Model):
     )
 
     def set_password(self, password):
-        self.password = generate_password(password)
+        self.password = generate_password(password).decode('utf-8')
 
     def __repr__(self):
         return '<User %r>' % self.username
